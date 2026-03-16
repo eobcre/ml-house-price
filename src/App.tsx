@@ -1,5 +1,7 @@
 import PredictionInput from "./sections/PredictionInput";
 import PredictionResult from "./sections/PredictionResult";
+import ModelMetrics from "./sections/ModelMetrics";
+import PipelineWorkflow from "./sections/PipelineWorkflow";
 
 const App = () => {
   return (
@@ -9,11 +11,15 @@ const App = () => {
       </section>
       <div className="grid grid-rows-2 gap-4">
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 lg:col-span-1">
-          <PredictionResult title="Prediction Result"/>
+          <PredictionResult title="Prediction Result" />
         </section>
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 lg: col-span-1"></section>
+        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 lg: col-span-1">
+          <ModelMetrics title="Model Metrics" />
+        </section>
       </div>
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 lg:col-span-1"></div>
+      <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 lg:col-span-1">
+        <PipelineWorkflow title="Pipeline Workflow" />
+      </section>
     </div>
   );
 };
