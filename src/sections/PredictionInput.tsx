@@ -1,4 +1,4 @@
-import Input from "../components/Input ";
+import Input from "../components/Input";
 import Button from "../components/Button";
 
 type PredictionInputProps = {
@@ -7,7 +7,7 @@ type PredictionInputProps = {
 
 const PredictionInput = ({ title }: PredictionInputProps) => {
   return (
-    <div className="flex flex-col gap-7">
+    <div className="flex flex-col gap-7 pb-6">
       <h1 className="text-gray-600 font-bold">{title}</h1>
       <Input label="Bedrooms" />
       <Input label="Bathrooms" />
