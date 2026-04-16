@@ -4,9 +4,9 @@ type ModelMetrics = {
 
 const items = [
   { id: 1, title: "Test", value: 382872 },
-  { id: 1, title: "Test", value: 374637 },
-  { id: 1, title: "Test", value: 727272 },
-  { id: 1, title: "Test", value: 373252 },
+  { id: 2, title: "Test", value: 374637 },
+  { id: 3, title: "Test", value: 727272 },
+  { id: 4, title: "Test", value: 373252 },
 ];
 
 const ModelMetrics = ({ title }: ModelMetrics) => {
@@ -17,7 +17,7 @@ const ModelMetrics = ({ title }: ModelMetrics) => {
       {/* metrics */}
       <div className="grid grid-cols-2 gap-4 items-stretch py-4 lg:overflow-y-auto">
         {items.map((item) => (
-          <div className="flex flex-col gap-2 border border-gray-200 bg-gray-50 rounded-2xl p-4">
+          <div key={item.id} className="flex flex-col gap-2 border border-gray-200 bg-gray-50 rounded-2xl p-4">
             <h2 className="text-gray-600 text-sm">{item.title}</h2>
             <p className="text-gray-700 text-2xl font-semibold">{item.value}</p>
           </div>
