@@ -1,7 +1,6 @@
 import PredictionInput from "./sections/PredictionInput";
 import PredictionResult from "./sections/PredictionResult";
 import ModelMetrics from "./sections/ModelMetrics";
-import PipelineWorkflow from "./sections/PipelineWorkflow";
 
 const App = () => {
   // test with dummy payload
@@ -46,9 +45,6 @@ const App = () => {
           <ModelMetrics title="Model Metrics" />
         </section>
       </div>
-      <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 h-full lg:col-span-1">
-        <PipelineWorkflow title="Pipeline Workflow" />
-      </section>
     </div>
   );
 };
