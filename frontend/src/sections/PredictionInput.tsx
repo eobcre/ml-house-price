@@ -1,20 +1,39 @@
 import Input from "../components/Input";
 import Button from "../components/Button";
 
+type FormState = {
+  bedrooms: string;
+  bathrooms: string;
+  sqft_living: string;
+  yr_built: string;
+  zipcode: string;
+};
+
 type PredictionInputProps = {
   title: string;
   handleSearch: () => Promise<void>;
+  form: FormState;
+  setForm: (value: FormState | ((prev: FormState) => FormState)) => void;
 };
 
-const PredictionInput = ({ title, handleSearch }: PredictionInputProps) => {
+const PredictionInput = ({ title, handleSearch, form, setForm }: PredictionInputProps) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="flex flex-col gap-7 pb-6">
       <h1 className="text-gray-600 font-bold">{title}</h1>
-      <Input label="Bedrooms" />
-      <Input label="Bathrooms" />
-      <Input label="Square Feet" />
-      <Input label="Year Built" />
-      <Input label="Zip Code" />
+      <Input label="Bedrooms" name="bedrooms" value={form.bedrooms} onChange={handleChange} />
+      <Input label="Bathrooms" name="bathrooms" value={form.bathrooms} onChange={handleChange} />
+      <Input label="Square Feet" name="sqft_living" value={form.sqft_living} onChange={handleChange} />
+      <Input label="Year Built" name="yr_built" value={form.yr_built} onChange={handleChange} />
+      <Input label="Zip Code" name="zipcode" value={form.zipcode} onChange={handleChange} />
       <Button name="Search" onClick={handleSearch} />
     </div>
   );
