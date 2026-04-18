@@ -15,7 +15,13 @@ export const handler = async (event) => {
     }
 
     const payload = JSON.parse(event.body);
-    
+
+    const metrics = {
+      mae: 98540.56,
+      rmse: 183908.55,
+      r2: 0.7311,
+    };
+
     // endpoint info
     const command = new InvokeEndpointCommand({
       EndpointName: process.env.ENDPOINT_NAME,
@@ -35,6 +41,7 @@ export const handler = async (event) => {
       body: JSON.stringify({
         ok: true,
         raw: decoded,
+        metrics,
       }),
     };
   } catch (error) {
