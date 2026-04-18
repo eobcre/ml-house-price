@@ -29,11 +29,11 @@ const PredictionInput = ({ title, handleSearch, form, setForm }: PredictionInput
   return (
     <div className="flex flex-col gap-7 pb-6">
       <h1 className="text-gray-600 font-bold">{title}</h1>
-      <Input label="Bedrooms" name="bedrooms" value={form.bedrooms} onChange={handleChange} />
-      <Input label="Bathrooms" name="bathrooms" value={form.bathrooms} onChange={handleChange} />
-      <Input label="Square Feet" name="sqft_living" value={form.sqft_living} onChange={handleChange} />
-      <Input label="Year Built" name="yr_built" value={form.yr_built} onChange={handleChange} />
-      <Input label="Zip Code" name="zipcode" value={form.zipcode} onChange={handleChange} />
+      <Input label="Bedrooms" name="bedrooms" value={form.bedrooms} onChange={handleChange} placeholder="e.g. 3" />
+      <Input label="Bathrooms" name="bathrooms" value={form.bathrooms} onChange={handleChange} placeholder="e.g. 4" />
+      <Input label="Square Feet" name="sqft_living" value={form.sqft_living} onChange={handleChange} placeholder="e.g. 1680" />
+      <Input label="Year Built" name="yr_built" value={form.yr_built} onChange={handleChange} placeholder="e.g. 1980" />
+      <Input label="Zip Code" name="zipcode" value={form.zipcode} onChange={handleChange} placeholder="e.g. 98074" />
       <Button name="Search" onClick={handleSearch} />
     </div>
   );
