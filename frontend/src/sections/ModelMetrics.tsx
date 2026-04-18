@@ -12,11 +12,11 @@ const items = [
 
 const ModelMetrics = ({ title, result }: ModelMetrics) => {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       {/* title */}
       <h1 className="text-gray-600 font-bold">{title}</h1>
       {/* metrics */}
-      <div className="grid grid-cols-2 gap-4 items-stretch py-4">
+      <div className="grid grid-cols-2 gap-4 py-4">
         {result !== null ? (
           <>
             {items.map((item) => (

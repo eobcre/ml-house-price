@@ -105,7 +105,7 @@ const App = () => {
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
           <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} formatCurrency={formatCurrency} />
         </section>
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 overflow-y-auto">
+        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex-1 overflow-y-auto">
           <ModelMetrics title="Model Metrics" result={result} />
         </section>
       </div>
