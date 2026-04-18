@@ -27,8 +27,14 @@ const App = () => {
     zipcode: "",
   });
   const [submittedForm, setSubmittedForm] = useState<FormState | null>(null);
+  const [formError, setFormError] = useState("");
 
   const handleSearch = async () => {
+    if (!form.bedrooms || !form.bathrooms || !form.sqft_living || !form.yr_built || !form.zipcode) {
+      setFormError("All fields are required.");
+      return;
+    }
+
     const payload = {
       bedrooms: Number(form.bedrooms),
       bathrooms: Number(form.bathrooms),
@@ -72,15 +78,14 @@ const App = () => {
   return (
     <div className="grid grid-cols-1 gap-6 bg-gray-100 p-6 min-h-screen lg:grid-cols-3 lg:p-14 lg:h-screen">
       <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 h-full lg:col-span-1">
-        <PredictionInput title="Prediction Search" handleSearch={handleSearch} form={form} setForm={setForm} />
+        <PredictionInput title="Prediction Search" handleSearch={handleSearch} form={form} setForm={setForm} formError={formError} setFormError={setFormError} />
       </section>
       <div className="flex flex-col gap-4 lg:col-span-2 h-full">
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 shrink-0">
           <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} />
         </section>
-
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex-1 overflow-auto">
-          <ModelMetrics title="Model Metrics" />
+          <ModelMetrics title="Model Metrics" result={result} />
         </section>
       </div>
     </div>
