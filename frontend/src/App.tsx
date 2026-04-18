@@ -101,7 +101,7 @@ const App = () => {
       <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 h-full lg:col-span-1">
         <PredictionInput title="Prediction Search" handleSearch={handleSearch} form={form} setForm={setForm} formError={formError} setFormError={setFormError} />
       </section>
-      <div className="flex flex-col gap-4 lg:col-span-2 min-h-0 overflow-hidden">
+      <div className="flex flex-col gap-4 lg:col-span-2 overflow-hidden">
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
           <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} formatCurrency={formatCurrency} />
         </section>
