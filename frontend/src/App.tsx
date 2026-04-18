@@ -31,8 +31,19 @@ const App = () => {
 
   // search
   const handleSearch = async () => {
-    if (!form.bedrooms || !form.bathrooms || !form.sqft_living || !form.yr_built || !form.zipcode) {
-      setFormError("All fields are required.");
+    if (
+      !form.bedrooms ||
+      !form.bathrooms ||
+      !form.sqft_living ||
+      !form.yr_built ||
+      !form.zipcode ||
+      isNaN(Number(form.bedrooms)) ||
+      isNaN(Number(form.bathrooms)) ||
+      isNaN(Number(form.sqft_living)) ||
+      isNaN(Number(form.yr_built)) ||
+      isNaN(Number(form.zipcode))
+    ) {
+      setFormError("All fields must be filled with numbers");
       return;
     }
 
