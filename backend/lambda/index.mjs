@@ -2,17 +2,20 @@ import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-s
 
 const client = new SageMakerRuntimeClient({ region: process.env.AWS_REGION });
 
-export const handler = async () => {
+export const handler = async (event) => {
   try {
-    // dummy payload for test
-    const payload = {
-      bedrooms: 3,
-      bathrooms: 2,
-      sqft_living: 1800,
-      yr_built: 1987,
-      zipcode: 98074,
-    };
+    if (!event.body) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          ok: false,
+          error: "Missing request body.",
+        }),
+      };
+    }
 
+    const payload = JSON.parse(event.body);
+    
     // endpoint info
     const command = new InvokeEndpointCommand({
       EndpointName: process.env.ENDPOINT_NAME,
@@ -22,7 +25,7 @@ export const handler = async () => {
 
     // send request to endpoint
     const res = await client.send(command);
-    console.log("RES", res)
+    console.log("RES", res);
     // decode binary to string
     const decoded = new TextDecoder().decode(res.Body);
 
