@@ -29,6 +29,7 @@ const App = () => {
   const [submittedForm, setSubmittedForm] = useState<FormState | null>(null);
   const [formError, setFormError] = useState("");
 
+  // search
   const handleSearch = async () => {
     if (!form.bedrooms || !form.bathrooms || !form.sqft_living || !form.yr_built || !form.zipcode) {
       setFormError("All fields are required.");
@@ -75,6 +76,15 @@ const App = () => {
     }
   };
 
+  // format number to usd
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    }).format(value);
+  };
+
   return (
     <div className="grid grid-cols-1 gap-6 bg-gray-100 p-6 min-h-screen lg:grid-cols-3 lg:p-14 lg:h-screen">
       <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 h-full lg:col-span-1">
@@ -82,7 +92,7 @@ const App = () => {
       </section>
       <div className="flex flex-col gap-4 lg:col-span-2 h-full">
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 shrink-0">
-          <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} />
+          <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} formatCurrency={formatCurrency} />
         </section>
         <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex-1 overflow-auto">
           <ModelMetrics title="Model Metrics" result={result} />
