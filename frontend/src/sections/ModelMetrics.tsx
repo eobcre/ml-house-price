@@ -12,11 +12,11 @@ const items = [
 
 const ModelMetrics = ({ title, result }: ModelMetrics) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       {/* title */}
       <h1 className="text-gray-600 font-bold">{title}</h1>
       {/* metrics */}
-      <div className="grid grid-cols-2 gap-4 items-stretch py-4 lg:overflow-y-auto">
+      <div className="grid grid-cols-2 gap-4 items-stretch py-4">
         {result !== null ? (
           <>
             {items.map((item) => (
@@ -27,7 +27,13 @@ const ModelMetrics = ({ title, result }: ModelMetrics) => {
             ))}
             {/* desc */}
             <div className="col-span-2 my-3">
-              <p>...</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus perspiciatis asperiores blanditiis quidem, eos nobis obcaecati distinctio? Dolorem officiis, quas quis, temporibus a quo
+                nostrum quia unde quaerat eligendi libero? Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus perspiciatis asperiores blanditiis quidem, eos nobis obcaecati distinctio?
+                Dolorem officiis, quas quis, temporibus a quo nostrum quia unde quaerat eligendi libero? Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus perspiciatis asperiores
+                blanditiis quidem, eos nobis obcaecati distinctio? Dolorem officiis, quas quis, temporibus a quo nostrum quia unde quaerat eligendi libero? Lorem ipsum dolor sit, amet consectetur
+                adipisicing elit. Quod beatae totam est animi, dolorum impedit! Eius sed dolores possimus veritatis eos, nam accusantium ea voluptatibus facere maiores aliquam autem consequatur.
+              </p>
             </div>
           </>
         ) : (
