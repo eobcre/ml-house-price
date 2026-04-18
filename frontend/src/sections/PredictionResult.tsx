@@ -35,7 +35,7 @@ const PredictionResult = ({ title, result, submittedForm, formatCurrency }: Pred
                     <div key={index}>
                       <span className="inline-block bg-gray-300 mr-1.5 w-2 h-2" />
                       <span className="text-gray-700 mr-1">{item.value}</span>
-                      <span className="text-gray-700">{item.label}</span>
+                      <span className="text-gray-700 italic">{item.label}</span>
                     </div>
                   ))}
                 </div>
