@@ -1,3 +1,3 @@
 # House Price Prediction App
 
-Full-stack web application that predicts house prices based on user inputs using a ML model deployed on AWS.
+A full-stack web application that provides real-time house price predictions based on user inputs, using a ML model deployed on AWS Serverless infrastructure.
