@@ -3,6 +3,7 @@ import { useState } from "react";
 import PredictionInput from "./sections/PredictionInput";
 import PredictionResult from "./sections/PredictionResult";
 import ModelMetrics from "./sections/ModelMetrics";
+import Loader from "./components/Loader";
 
 type FormState = {
   bedrooms: string;
@@ -28,6 +29,7 @@ const App = () => {
   });
   const [submittedForm, setSubmittedForm] = useState<FormState | null>(null);
   const [formError, setFormError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // search
   const handleSearch = async () => {
@@ -54,6 +56,8 @@ const App = () => {
       yr_built: Number(form.yr_built),
       zipcode: Number(form.zipcode),
     };
+
+    setLoading(true);
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/predict`, {
@@ -84,6 +88,9 @@ const App = () => {
       console.log("SUCCESS!!!", data);
     } catch (err: any) {
       console.error("ERROR...", err.message);
+      setFormError("Failed to get prediction.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,19 +104,22 @@ const App = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-6 bg-gray-100 p-6 min-h-screen lg:grid-cols-3 lg:p-14 lg:h-screen">
-      <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 h-full lg:col-span-1">
-        <PredictionInput title="Prediction Search" handleSearch={handleSearch} form={form} setForm={setForm} formError={formError} setFormError={setFormError} />
-      </section>
-      <div className="flex flex-col gap-4 lg:col-span-2 overflow-hidden">
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
-          <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} formatCurrency={formatCurrency} />
+    <>
+      <div className="grid grid-cols-1 gap-6 bg-gray-100 p-6 min-h-screen lg:grid-cols-3 lg:p-14 lg:h-screen">
+        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 h-full lg:col-span-1">
+          <PredictionInput title="Prediction Search" handleSearch={handleSearch} form={form} setForm={setForm} formError={formError} setFormError={setFormError} />
         </section>
-        <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex-1 overflow-y-auto">
-          <ModelMetrics title="Model Metrics" result={result} />
-        </section>
+        <div className="flex flex-col gap-4 lg:col-span-2 overflow-hidden">
+          <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+            <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} formatCurrency={formatCurrency} />
+          </section>
+          <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex-1 overflow-y-auto">
+            <ModelMetrics title="Model Metrics" result={result} />
+          </section>
+        </div>
       </div>
-    </div>
+      {loading && <Loader />}
+    </>
   );
 };
 
