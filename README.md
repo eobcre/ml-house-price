@@ -16,7 +16,7 @@ A full-stack web application that provides real-time house price predictions bas
 
 ### 🏗 Architecture 🏗
 #### Diagram created with Lucidchart
-<img src="./workflow_image.png" alt="image" width="600" />
+<img src="./images/workflow_image.png" alt="image" width="600" />
 
 ### 🛠 Tech Stack 🛠
 #### Frontend
