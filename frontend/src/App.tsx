@@ -36,6 +36,8 @@ const App = () => {
     // year built validation
     const year = Number(form.yr_built);
     const currentYear = new Date().getFullYear();
+    // square feet validation
+    const sqft = Number(form.sqft_living);
 
     // basic validation
     if (
@@ -57,6 +59,12 @@ const App = () => {
     // year built validation
     if (year < 1800 || year > currentYear) {
       setFormError("Year must be between 1800 and current year");
+      return;
+    }
+
+    // square feet validation
+    if (sqft < 300 || sqft > 20000) {
+      setFormError("Square feet must be between 300 and 20000");
       return;
     }
 
