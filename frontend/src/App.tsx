@@ -38,6 +38,8 @@ const App = () => {
     const currentYear = new Date().getFullYear();
     // square feet validation
     const sqft = Number(form.sqft_living);
+    // zipcode validation
+    const zipcode = form.zipcode;
 
     // basic validation
     if (
@@ -65,6 +67,12 @@ const App = () => {
     // square feet validation
     if (sqft < 300 || sqft > 20000) {
       setFormError("Square feet must be between 300 and 20000");
+      return;
+    }
+
+    // zipcode validation (5 digits check)
+    if (!/^\d{5}$/.test(zipcode)) {
+      setFormError("Zipcode must be 5 digits");
       return;
     }
 
