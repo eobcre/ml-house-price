@@ -33,6 +33,11 @@ const App = () => {
 
   // search
   const handleSearch = async () => {
+    // year built validation
+    const year = Number(form.yr_built);
+    const currentYear = new Date().getFullYear();
+
+    // basic validation
     if (
       !form.bedrooms ||
       !form.bathrooms ||
@@ -46,6 +51,12 @@ const App = () => {
       isNaN(Number(form.zipcode))
     ) {
       setFormError("All fields must be filled with numbers");
+      return;
+    }
+
+    // year built validation
+    if (year < 1800 || year > currentYear) {
+      setFormError("Year must be between 1800 and current year");
       return;
     }
 
