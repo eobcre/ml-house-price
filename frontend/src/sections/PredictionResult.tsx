@@ -1,3 +1,4 @@
+// form props
 type FormState = {
   bedrooms: string;
   bathrooms: string;
@@ -6,9 +7,19 @@ type FormState = {
   zipcode: string;
 };
 
+// result state props
+type ResultData = {
+  prediction: number;
+  metrics: {
+    rmse: number;
+    mae: number;
+    r2: number;
+  };
+};
+
 type PredictionResultProps = {
   title: string;
-  result: number | null;
+  result: ResultData | null;
   submittedForm: FormState | null;
   formatCurrency: (value: number) => string;
 };
@@ -19,7 +30,7 @@ const PredictionResult = ({ title, result, submittedForm, formatCurrency }: Pred
       <h1 className="text-gray-600 font-bold">{title}</h1>
       {result !== null ? (
         <div className="flex flex-col gap-1">
-          <p className="text-gray-700 text-4xl font-bold mt-1 mb-8">{formatCurrency(result)}</p>
+          <p className="text-gray-700 text-4xl font-bold mt-1 mb-8">{formatCurrency(result.prediction)}</p>
           <div className="flex flex-col">
             <h1 className="text-gray-700 text-sm font-bold mb-1">Estimated price for :</h1>
             <div className="flex gap-4">

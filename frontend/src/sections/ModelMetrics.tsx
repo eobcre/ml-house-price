@@ -1,16 +1,26 @@
-type ModelMetrics = {
-  title: string;
-  result: number | null;
+// result state props
+type ResultData = {
+  prediction: number;
+  metrics: {
+    rmse: number;
+    mae: number;
+    r2: number;
+  };
 };
 
-const items = [
-  { id: 1, title: "RMSE", value: 382872 },
-  { id: 2, title: "MAE", value: 374637 },
-  { id: 3, title: "R² Score", value: 727272 },
-  { id: 4, title: "Model Type", value: 373252 },
-];
+type ModelMetrics = {
+  title: string;
+  result: ResultData | null;
+};
 
 const ModelMetrics = ({ title, result }: ModelMetrics) => {
+  const items = [
+    { id: 1, title: "RMSE", value: result?.metrics.rmse },
+    { id: 2, title: "MAE", value: result?.metrics.mae },
+    { id: 3, title: "R² Score", value: result?.metrics.r2 },
+    { id: 4, title: "Model Type", value: 373252 },
+  ];
+
   return (
     <div className="flex flex-col">
       {/* title */}

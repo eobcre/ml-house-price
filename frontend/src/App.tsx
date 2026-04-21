@@ -5,6 +5,7 @@ import PredictionResult from "./sections/PredictionResult";
 import ModelMetrics from "./sections/ModelMetrics";
 import Loader from "./components/Loader";
 
+// form props
 type FormState = {
   bedrooms: string;
   bathrooms: string;
@@ -13,13 +14,29 @@ type FormState = {
   zipcode: string;
 };
 
+// raw data props
 type PredictionResponse = {
   ok: boolean;
   raw: string;
+  metrics: {
+    rmse: number;
+    mae: number;
+    r2: number;
+  };
+};
+
+// result state props
+type ResultData = {
+  prediction: number;
+  metrics: {
+    rmse: number;
+    mae: number;
+    r2: number;
+  };
 };
 
 const App = () => {
-  const [result, setResult] = useState<number | null>(null);
+  const [result, setResult] = useState<ResultData | null>(null);
   const [form, setForm] = useState<FormState>({
     bedrooms: "",
     bathrooms: "",
@@ -63,13 +80,11 @@ const App = () => {
       setFormError("Year must be between 1800 and current year");
       return;
     }
-
     // square feet validation
     if (sqft < 300 || sqft > 20000) {
       setFormError("Square feet must be between 300 and 20000");
       return;
     }
-
     // zipcode validation (5 digits check)
     if (!/^\d{5}$/.test(zipcode)) {
       setFormError("Zipcode must be 5 digits");
@@ -101,7 +116,11 @@ const App = () => {
 
       const data: PredictionResponse = await res.json();
       const parsed = JSON.parse(data.raw);
-      setResult(parsed.prediction);
+
+      setResult({
+        ...parsed,
+        metrics: data.metrics,
+      });
       setSubmittedForm(form);
 
       setForm({
