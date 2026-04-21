@@ -1,8 +1,9 @@
-# ML House Price Prediction App
+# ML House Price Prediction Application
 
 A house price web application that provides real-time house price predictions based on user inputs, using a ML model deployed on AWS serverless infrastructure.
 
 ### 🚀 Features 🚀
+
 - Real-time house price prediction
 - Model evaluation metrics (RMSE, MAE, R²)
 
@@ -15,16 +16,23 @@ A house price web application that provides real-time house price predictions ba
 5. Result is formatted and displayed in UI
 
 ### 🏗 Architecture 🏗
-#### Diagram created with Lucidchart
-<img src="./images/workflow_image.png" alt="image" width="600" />
+
+<p>
+  <img src="./images/workflow_image.png" alt="Image" width="600" />
+<br />
+  <sub>Architecture diagram created with Lucidchart</sub>
+</p>
 
 ### 🛠 Tech Stack 🛠
+
 #### Frontend
+
 - React
 - TypeScript
 - Tailwind CSS
 
 #### Backend / AWS
+
 - Lambda
 - API Gateway
 - SageMaker (Serverless Inference Endpoint)
@@ -33,14 +41,17 @@ A house price web application that provides real-time house price predictions ba
 - S3
 
 #### Machine Learning
+
 - Python
 - Random Forest Regressor
 
-### 📊 Model Metrics 📊 
-- RMSE: $183,909 
+### 📊 Model Metrics 📊
+
+- RMSE: $183,909
 - MAE: $98,541
-- R² Score: 0.73 
+- R² Score: 0.73
 
 ### 📦 Setup 📦
+
 1. `npm install`
 2. `npm run dev`
