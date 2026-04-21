@@ -1,6 +1,6 @@
 # ML House Price Prediction App
 
-A full-stack web application that provides real-time house price predictions based on user inputs, using a ML model deployed on AWS serverless infrastructure.
+A house price web application that provides real-time house price predictions based on user inputs, using a ML model deployed on AWS serverless infrastructure.
 
 ### 🚀 Features 🚀
 - Real-time house price prediction
@@ -25,9 +25,9 @@ A full-stack web application that provides real-time house price predictions bas
 - Tailwind CSS
 
 #### Backend / AWS
-- AWS Lambda
+- Lambda
 - API Gateway
-- SageMaker (Serverless Inference)
+- SageMaker (Serverless Inference Endpoint)
 - SageMaker Studio
 - CloudFront
 - S3
