@@ -3,6 +3,8 @@ import { useState } from "react";
 import PredictionInput from "./sections/PredictionInput";
 import PredictionResult from "./sections/PredictionResult";
 import ModelMetrics from "./sections/ModelMetrics";
+import PredictionInsights from "./sections/PredictionInsights";
+import ModelInfo from "./sections/ModelInfo";
 import Loader from "./components/Loader";
 
 // form props
@@ -159,9 +161,17 @@ const App = () => {
           <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
             <PredictionResult title="Prediction Result" result={result} submittedForm={submittedForm} formatCurrency={formatCurrency} />
           </section>
-          <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex-1 overflow-y-auto">
+          <section className="bg-white border border-gray-200 rounded-2xl shadow-sm flex-1 p-6 overflow-y-auto">
             <ModelMetrics title="Model Metrics" result={result} />
           </section>
+          <div className="grid grid-cols-1 gap-4 flex-1 lg:grid-cols-2">
+            <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 ">
+              <PredictionInsights title="Prediction Insights" result={result} />
+            </section>
+            <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+              <ModelInfo title="Model Info" result={result} />
+            </section>
+          </div>
         </div>
       </div>
       {loading && <Loader />}
