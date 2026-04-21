@@ -25,13 +25,13 @@ A house price web application that provides real-time house price predictions ba
 
 ### 🛠 Tech Stack 🛠
 
-#### Frontend
+#### ▫️ Frontend
 
 - React
 - TypeScript
 - Tailwind CSS
 
-#### Backend / AWS
+#### ▫️ Backend / AWS
 
 - Lambda
 - API Gateway
@@ -40,7 +40,7 @@ A house price web application that provides real-time house price predictions ba
 - CloudFront
 - S3
 
-#### Machine Learning
+#### ▫️ Machine Learning
 
 - Python
 - Random Forest Regressor
