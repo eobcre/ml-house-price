@@ -32,7 +32,7 @@ const PredictionResult = ({ title, result, submittedForm, formatCurrency }: Pred
         <div className="flex flex-col gap-1">
           <p className="text-gray-700 text-4xl font-bold mt-1 mb-8">{formatCurrency(result.prediction)}</p>
           <div className="flex flex-col">
-            <h1 className="text-gray-700 text-sm font-bold mb-1">Estimated price for :</h1>
+            <h1 className="text-gray-600 text-sm font-semibold mb-2">Estimated price for</h1>
             <div className="flex gap-4">
               {submittedForm && (
                 <div className="flex gap-4">
