@@ -41,3 +41,6 @@ A house price web application that provides real-time house price predictions ba
 - MAE: $98,541
 - R² Score: 0.73 
 
+### 📦 Setup 📦
+1. `npm install`
+2. `npm run dev`
