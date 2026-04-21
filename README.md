@@ -33,12 +33,12 @@ A house price web application that provides real-time house price predictions ba
 
 #### ▫️ Backend / AWS
 
-- Lambda
-- API Gateway
-- SageMaker (Serverless Inference Endpoint)
-- SageMaker Studio
-- CloudFront
-- S3
+- AWS Lambda
+- Amazon API Gateway
+- Amazon SageMaker (Serverless Inference Endpoint)
+- Amazon SageMaker Studio
+- Amazon CloudFront
+- Amazon S3
 
 #### ▫️ Machine Learning
 
