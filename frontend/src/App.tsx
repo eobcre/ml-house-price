@@ -164,11 +164,11 @@ const App = () => {
           <section className="bg-white border border-gray-200 rounded-2xl shadow-sm flex-1 p-6 overflow-y-auto">
             <ModelMetrics title="Model Metrics" result={result} />
           </section>
-          <div className="grid grid-cols-1 gap-4 flex-1 lg:grid-cols-2">
-            <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 ">
+          <div className="grid grid-cols-1 gap-4 flex-1 lg:grid-cols-2 overflow-hidden">
+            <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 overflow-y-auto">
               <PredictionInsights title="Prediction Insights" result={result} />
             </section>
-            <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+            <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 overflow-y-auto">
               <ModelInfo title="Model Info" result={result} />
             </section>
           </div>
