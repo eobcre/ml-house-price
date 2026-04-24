@@ -2,12 +2,12 @@
 
 A house price web application that provides real-time house price predictions based on user inputs, using a ML model deployed on AWS serverless infrastructure.
 
-### 🚀 Features 🚀
+### 🚀 Features
 
 - Real-time house price prediction
 - Model evaluation metrics (RMSE, MAE, R²)
 
-### 🧠 How It Works 🧠
+### 🧠 How It Works
 
 1. User enters property details (bedrooms, bathrooms, sqft, year built, zipcode)
 2. Frontend sends request to API Gateway
@@ -15,7 +15,7 @@ A house price web application that provides real-time house price predictions ba
 4. Model returns prediction
 5. Result is formatted and displayed in UI
 
-### 🏗 Architecture 🏗
+### 🏗 Architecture
 
 <p>
   <img src="./images/workflow_image.png" alt="Image" width="600" />
@@ -23,7 +23,7 @@ A house price web application that provides real-time house price predictions ba
   <sub>Architecture diagram created with Lucidchart</sub>
 </p>
 
-### 🛠 Tech Stack 🛠
+### 🛠 Tech Stack
 
 #### ▫️ Frontend
 
@@ -45,13 +45,21 @@ A house price web application that provides real-time house price predictions ba
 - Python
 - Random Forest Regressor
 
-### 📊 Model Metrics 📊
+### ✏️ Notebooks
+
+- **eda.ipynb**   
+  Explores the dataset, analyzes distributions, identifies outliers and determines preprocessing strategies.
+
+- **model_training.ipynb**  
+  Applies preprocessing steps identified during EDA, trains the model, evaluates performance and saves the trained model for deployment.
+
+### 📊 Model Metrics
 
 - RMSE: $183,909
 - MAE: $98,541
 - R² Score: 0.73
 
-### 📦 Setup 📦
+### 📦 Setup
 
 1. `npm install`
 2. `npm run dev`
