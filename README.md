@@ -1,4 +1,4 @@
-# ML House Price Prediction Application
+# House Price Prediction App (AWS + Machine Learning)
 
 A house price web application that provides real-time house price predictions based on user inputs, using a ML model deployed on AWS serverless infrastructure.
 
