@@ -5,7 +5,7 @@ A house price web application that provides real-time house price predictions ba
 ### 🚀 Features
 
 - Real-time house price prediction
-- Model evaluation metrics (RMSE, MAE, R²)
+- Model evaluation metrics (MAE, RMSE, R²)
 
 ### 🧠 How It Works
 
