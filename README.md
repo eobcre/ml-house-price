@@ -65,7 +65,23 @@ The model shows moderate predictive performance:
 
 For reference, the average house price in the dataset is approximately $540,088.
 
-### 📦 Setup
+### 📦 Installation
 
-1. `npm install`
-2. `npm run dev`
+Clone the repository and install dependencies.
+```bash
+git clone https://github.com/eobcre/ml-house-price.git
+cd ml-house-price   
+npm install
+```
+
+**Environment Variables**
+```
+VITE_API_URL=your_api_gateway_invoke_url
+```
+
+**Run Locally**
+```bash
+npm run dev
+```
+
+Note: This application requires a deployed AWS backend (API Gateway, Lambda and SageMaker).
