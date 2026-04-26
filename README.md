@@ -47,7 +47,7 @@ A house price web application that provides real-time house price predictions ba
 
 ### ✏️ Notebooks
 
-- **eda.ipynb**   
+- **eda.ipynb**  
   Explores the dataset, analyzes distributions, identifies outliers and determines preprocessing strategies.
 
 - **model_training.ipynb**  
@@ -55,9 +55,15 @@ A house price web application that provides real-time house price predictions ba
 
 ### 📊 Model Metrics
 
-- RMSE: $183,909
-- MAE: $98,541
-- R² Score: 0.73
+The model shows moderate predictive performance:
+
+- MAE (Mean Absolute Error): **$98,541** - Indicates average prediction error.
+
+- RMSE (Root Mean Squared Error): **$183,909** - Indicates sensitivity to larger errors.
+
+- R² Score: **0.73** - Explains 73% of the variance in house prices.
+
+For reference, the average house price in the dataset is approximately $540,088.
 
 ### 📦 Setup
 
