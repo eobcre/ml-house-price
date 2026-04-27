@@ -2,12 +2,7 @@
 
 A house price web application that provides real-time house price predictions based on user inputs, using a ML model deployed on AWS serverless infrastructure.
 
-### 🚀 Features
-
-- Real-time house price prediction
-- Model evaluation metrics (MAE, RMSE, R²)
-
-### 🧠 How It Works
+## 🧠 How It Works
 
 1. User enters property details (bedrooms, bathrooms, sqft, year built, zipcode)
 2. Frontend sends request to API Gateway
@@ -15,7 +10,7 @@ A house price web application that provides real-time house price predictions ba
 4. Model returns prediction
 5. Result is formatted and displayed in UI
 
-### 🏗 Architecture
+## 🏗 Architecture
 
 <p>
   <img src="./images/workflow_image.png" alt="Image" width="600" />
@@ -23,7 +18,16 @@ A house price web application that provides real-time house price predictions ba
   <sub>Architecture diagram created with Lucidchart</sub>
 </p>
 
-### 🛠 Tech Stack
+## 🚀 Features
+
+- Real-time house price prediction based on user inputs.
+- Form for property features. (e.g. bedrooms, bathrooms...)
+- Serverless model inference using Amazon SageMaker Serverless Inference Endpoint.
+- Displays prediction results, insights and model performance metrics.
+- Model evaluation metrics including MAE, RMSE, and R² score.
+- End-to-end ML workflow from training to deployment on AWS.
+
+## 🛠 Tech Stack
 
 #### ▫️ Frontend
 
@@ -45,15 +49,15 @@ A house price web application that provides real-time house price predictions ba
 - Python
 - Random Forest Regressor
 
-### ✏️ Notebooks
+## ✏️ Notebooks
 
-- **eda.ipynb**  
+**▫️ eda.ipynb**  
   Explores the dataset, analyzes distributions, identifies outliers and determines preprocessing strategies.
 
-- **model_training.ipynb**  
+**▫️ model_training.ipynb**  
   Applies preprocessing steps identified during EDA, trains the model, evaluates performance and saves the trained model for deployment.
 
-### 📊 Model Metrics
+## 📊 Model Metrics
 
 The model shows moderate predictive performance:
 
@@ -65,21 +69,24 @@ The model shows moderate predictive performance:
 
 For reference, the average house price in the dataset is approximately $540,088.
 
-### 📦 Installation
+## 📦 Installation
 
 Clone the repository and install dependencies.
+
 ```bash
 git clone https://github.com/eobcre/ml-house-price.git
-cd ml-house-price   
+cd ml-house-price
 npm install
 ```
 
 **Environment Variables**
+
 ```
 VITE_API_URL=your_api_gateway_invoke_url
 ```
 
 **Run Locally**
+
 ```bash
 npm run dev
 ```
