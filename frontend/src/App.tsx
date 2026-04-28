@@ -104,7 +104,7 @@ const App = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/predict`, {
+      const res = await fetch(`/api/predict`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
