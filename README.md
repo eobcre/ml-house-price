@@ -13,7 +13,7 @@ A house price web application that provides real-time house price predictions ba
 ## 🏗 Architecture
 
 <p>
-  <img src="./images/workflow_image.png" alt="Image" width="600" />
+  <img src="./docs/workflow_image.png" alt="Image" width="600" />
 <br />
   <sub>Architecture diagram created with Lucidchart</sub>
 </p>
