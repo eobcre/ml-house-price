@@ -26,7 +26,7 @@ const ModelInfo = ({ title, result }: ModelInfoProps) => {
       {result !== null ? (
         <>
           {items.map((item) => (
-            <div className="col-span-2 text-gray-600 text-sm mt-4">
+            <div key={item.id} className="col-span-2 text-gray-600 text-sm mt-4">
               <h2 className="font-semibold mb-2">{item.title}</h2>
               <p>{item.desc}</p>
             </div>
