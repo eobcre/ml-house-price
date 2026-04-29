@@ -10,6 +10,13 @@ A house price web application that provides real-time house price predictions ba
 4. Model returns prediction.
 5. Result is formatted and displayed in UI.
 
+## 📄 Data
+
+The dataset which includes features such as price, bedrooms, bathrooms, square footage and location.  
+It is used for regression problem and was used to train and evaluate the prediction model.
+
+[House Sales in King County, USA](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction?resource=download)
+
 ## 🏗 Architecture
 
 <p>
