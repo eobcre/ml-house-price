@@ -4,11 +4,11 @@ A house price web application that provides real-time house price predictions ba
 
 ## 🧠 How It Works
 
-1. User enters property details (bedrooms, bathrooms, sqft, year built, zipcode)
-2. Frontend sends request to API Gateway
-3. AWS Lambda invokes SageMaker Serverless Endpoint
-4. Model returns prediction
-5. Result is formatted and displayed in UI
+1. User enters property details. (bedrooms, bathrooms, sqft, year built, zipcode)
+2. Frontend sends request to API Gateway.
+3. AWS Lambda invokes SageMaker Serverless Endpoint.
+4. Model returns prediction.
+5. Result is formatted and displayed in UI.
 
 ## 🏗 Architecture
 
@@ -52,10 +52,10 @@ A house price web application that provides real-time house price predictions ba
 ## ✏️ Notebooks
 
 **▫️ eda.ipynb**  
-  Explores the dataset, analyzes distributions, identifies outliers and determines preprocessing strategies.
+ Explores the dataset, analyzes distributions, identifies outliers and determines preprocessing strategies.
 
 **▫️ model_training.ipynb**  
-  Applies preprocessing steps identified during EDA, trains the model, evaluates performance and saves the trained model for deployment.
+ Applies preprocessing steps identified during EDA, trains the model, evaluates performance and saves the trained model for deployment.
 
 ## 📊 Model Metrics
 
