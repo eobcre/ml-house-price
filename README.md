@@ -124,3 +124,9 @@ npm run dev
 ```
 
 Note: This application requires a deployed AWS backend (API Gateway, Lambda and SageMaker).
+
+## 📚 References
+
+- [Boto3 API Documentation (invoke_endpoint)](https://docs.aws.amazon.com/boto3/latest/reference/services/sagemaker-runtime/client/invoke_endpoint.html?utm_source=chatgpt.com)
+
+- [AWS SageMaker Inference Blog](https://aws.amazon.com/blogs/machine-learning/create-a-sagemaker-inference-endpoint-with-custom-model-extended-container/?utm_source=chatgpt.com)
