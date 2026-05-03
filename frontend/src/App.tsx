@@ -27,7 +27,7 @@ type PredictionResponse = {
   };
 };
 
-// result state props
+// result props
 type ResultData = {
   prediction: number;
   metrics: {
@@ -166,7 +166,7 @@ const App = () => {
           </section>
           <div className="grid grid-cols-1 gap-4 flex-1 lg:grid-cols-2 overflow-hidden">
             <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 overflow-y-auto">
-              <PredictionInsights title="Prediction Insights" result={result} />
+              <PredictionInsights title="Prediction Insights" result={result} formatCurrency={formatCurrency} />
             </section>
             <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 overflow-y-auto">
               <ModelInfo title="Model Info" result={result} />
