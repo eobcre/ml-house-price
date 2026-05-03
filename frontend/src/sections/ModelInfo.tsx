@@ -1,4 +1,4 @@
-// result state props
+// result props
 type ResultData = {
   prediction: number;
   metrics: {
@@ -15,9 +15,9 @@ type ModelInfoProps = {
 
 const ModelInfo = ({ title, result }: ModelInfoProps) => {
   const items = [
-    { id: 1, title: "Algorithm", desc: `Random Forest Regressor` },
-    { id: 2, title: "Features", desc: `bedrooms, bathrooms, sqft_living, yr_built, zipcode` },
-    { id: 3, title: "Dataset", desc: `House Sales in King County, USA` },
+    { id: 1, title: "Algorithm:", desc: `Random Forest Regressor` },
+    { id: 2, title: "Features:", desc: `bedrooms, bathrooms, sqft_living, yr_built, zipcode` },
+    { id: 3, title: "Dataset:", desc: `House Sales in King County, USA` },
   ];
 
   return (
