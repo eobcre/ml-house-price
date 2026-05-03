@@ -1,3 +1,12 @@
+// form props
+type FormState = {
+  bedrooms: string;
+  bathrooms: string;
+  sqft_living: string;
+  yr_built: string;
+  zipcode: string;
+};
+
 // result props
 type ResultData = {
   prediction: number;
@@ -12,12 +21,13 @@ type InsightProps = {
   title: string;
   result: ResultData | null;
   formatCurrency: (value: number) => string;
+  submittedForm: FormState | null;
 };
 
-const PredictionInsights = ({ title, result, formatCurrency }: InsightProps) => {
+const PredictionInsights = ({ title, result, formatCurrency, submittedForm }: InsightProps) => {
   //console.log("result:", result);
 
-  if (!result) {
+  if (!result || !submittedForm) {
     return (
       <div>
         <h1 className="text-gray-600 font-bold mb-3">{title}</h1>
@@ -41,11 +51,27 @@ const PredictionInsights = ({ title, result, formatCurrency }: InsightProps) => 
 
   const priceLevelText = `${getPriceLevel(result.prediction)}`;
 
+  // home size
+  const getHomeSize = (sqft: number) => {
+    if (sqft < 1400) return "Small home";
+    if (sqft < 2500) return "Mid-size home";
+    return "Large home";
+  };
+
+  const homeSizeText = `${getHomeSize(result.prediction)}`;
+
+  // console.log("submittedForm:", submittedForm);
+
+  // home age
+  const currentYear = new Date().getFullYear();
+  const homeAgeText = `${currentYear - Number(submittedForm.yr_built)} years`;
+
   // data
   const items = [
-    { id: 1, title: "Estimated range", desc: estimatedRangeText },
-    { id: 2, title: "Price Level", desc: priceLevelText },
-    { id: 3, title: "Established home", desc: `Lorem Lorem Lorem` },
+    { id: 1, title: "Estimated range:", desc: estimatedRangeText },
+    { id: 2, title: "Price Level:", desc: priceLevelText },
+    { id: 3, title: "Home Size:", desc: homeSizeText },
+    { id: 4, title: "Home Age:", desc: homeAgeText },
   ];
 
   return (
