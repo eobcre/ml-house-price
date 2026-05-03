@@ -32,10 +32,19 @@ const PredictionInsights = ({ title, result, formatCurrency }: InsightProps) => 
 
   const estimatedRangeText = `${formatCurrency(low)} - ${formatCurrency(high)}`;
 
+  // price level
+  const getPriceLevel = (price: number) => {
+    if (price < 300000) return "Budget";
+    if (price < 700000) return "Mid-range";
+    return "High-end";
+  };
+
+  const priceLevelText = `${getPriceLevel(result.prediction)}`;
+
   // data
   const items = [
     { id: 1, title: "Estimated range", desc: estimatedRangeText },
-    { id: 2, title: "Mid-size home", desc: `Lorem Lorem Lorem` },
+    { id: 2, title: "Price Level", desc: priceLevelText },
     { id: 3, title: "Established home", desc: `Lorem Lorem Lorem` },
   ];
 
