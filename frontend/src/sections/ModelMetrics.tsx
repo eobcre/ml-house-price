@@ -15,8 +15,8 @@ type ModelMetrics = {
 
 const ModelMetrics = ({ title, result }: ModelMetrics) => {
   const items = [
-    { id: 1, title: "RMSE", value: result?.metrics.rmse },
-    { id: 2, title: "MAE", value: result?.metrics.mae },
+    { id: 1, title: "MAE", value: result?.metrics.mae },
+    { id: 2, title: "RMSE", value: result?.metrics.rmse },
     { id: 3, title: "R² Score", value: result?.metrics.r2 },
   ];
 
