@@ -1,58 +1,31 @@
-import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime";
+// import { predictService } from "./services/predictService.js"; // prod
+import { predictService } from "../services/predictService.js"; // dev
 
-const client = new SageMakerRuntimeClient({ region: process.env.AWS_REGION });
-
-export const handler = async (event) => {
+export const handler = async (e) => {
   try {
-    if (!event.body) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({
-          ok: false,
-          error: "Missing request body.",
-        }),
-      };
-    }
+    const body = e?.body ? JSON.parse(e.body) : {};
+    const { bedrooms, bathrooms, sqft_living, yr_built, zipcode } = body;
 
-    const payload = JSON.parse(event.body);
+    const res = await predictService({ bedrooms, bathrooms, sqft_living, yr_built, zipcode });
 
-    const metrics = {
-      mae: 98540.56,
-      rmse: 183908.55,
-      r2: 0.7311,
-    };
-
-    // endpoint info
-    const command = new InvokeEndpointCommand({
-      EndpointName: process.env.ENDPOINT_NAME,
-      ContentType: "application/json",
-      Body: JSON.stringify(payload),
-    });
-
-    // send request to endpoint
-    const res = await client.send(command);
-    console.log("RES", res);
-    // decode binary to string
-    const decoded = new TextDecoder().decode(res.Body);
-
-    // return success
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        ok: true,
-        raw: decoded,
-        metrics,
-      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(res),
     };
-  } catch (error) {
-    console.error("InvokeEndpoint Error:", error);
+  } catch (err) {
+    console.error("Lambda error:", err);
 
-    // return error
     return {
       statusCode: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         ok: false,
-        error: error.message,
+        error: err.message,
       }),
     };
   }
