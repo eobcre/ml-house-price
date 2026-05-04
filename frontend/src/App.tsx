@@ -133,6 +133,8 @@ const App = () => {
         zipcode: "",
       });
 
+      setFormError("");
+
       console.log("SUCCESS!!!", data);
     } catch (err: any) {
       console.error("ERROR...", err.message);
