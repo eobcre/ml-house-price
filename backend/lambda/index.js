@@ -1,7 +1,20 @@
-// import { predictService } from "./services/predictService.js"; // prod
-import { predictService } from "../services/predictService.js"; // dev
+import { predictService } from "./services/predictService.js";
+
+const SECRET = process.env.ORIGIN_SECRET;
 
 export const handler = async (e) => {
+  const header = e.headers?.["x-origin-verify"];
+
+  if (header !== SECRET) {
+    return {
+      statusCode: 403,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message: "Forbidden..." }),
+    };
+  }
+
   try {
     const body = e?.body ? JSON.parse(e.body) : {};
     const { bedrooms, bathrooms, sqft_living, yr_built, zipcode } = body;
