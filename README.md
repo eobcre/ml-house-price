@@ -63,8 +63,11 @@ Backend is designed to separate development and production environments while sh
 - Amazon API Gateway
 - Amazon SageMaker (Serverless Inference Endpoint)
 - Amazon SageMaker Studio
+- AWS SAM
 - Amazon CloudFront
 - Amazon S3
+
+Note: AWS Lambda is managed via AWS SAM.
 
 #### ▫️ Machine Learning
 
