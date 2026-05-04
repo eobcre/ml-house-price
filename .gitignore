@@ -22,10 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.pkl
+*.tar.gz
+samconfig.toml
 
 .env
 .env.development
 .env.production
+
 .venv
-*.pkl
-*.tar.gz
