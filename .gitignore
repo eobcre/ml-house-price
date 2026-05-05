@@ -25,6 +25,7 @@ dist-ssr
 *.pkl
 *.tar.gz
 samconfig.toml
+resources-to-import.json
 
 .env
 .env.development
