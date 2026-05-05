@@ -67,7 +67,7 @@ Backend is designed to separate development and production environments while sh
 - Amazon CloudFront
 - Amazon S3
 
-Note: AWS Lambda is managed via AWS SAM.
+> Note: AWS Lambda is managed via AWS SAM.
 
 #### ▫️ Machine Learning
 
