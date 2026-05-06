@@ -1,28 +1,63 @@
 AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
 
 Parameters:
-  LambdaRoleArn:
-    Type: String
-    NoEcho: true
-  S3BucketName:
-    Type: String
-    NoEcho: true
-  S3Key:
+  EndpointName:
     Type: String
     NoEcho: true
 
+Globals:
+  Function:
+    Runtime: nodejs24.x
+    Timeout: 30
+    MemorySize: 128
+
 Resources:
-  PredictFunction:
-    Type: AWS::Lambda::Function
-    DeletionPolicy: Retain
-    UpdateReplacePolicy: Retain
+  PredictHttpApi:
+    Type: AWS::Serverless::HttpApi
     Properties:
-      FunctionName: predict-api
-      Runtime: nodejs24.x
+      Name: sam-predict-api
+
+    CorsConfiguration:
+      AllowMethods:
+        - POST
+        - OPTIONS
+
+      AllowHeaders:
+        - Content-Type
+        - x-api-key
+
+      AllowOrigins:
+        - "*"
+
+  RagFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: sam-predict-api
+
+      CodeUri: src/
+
       Handler: index.handler
-      Role: !Ref LambdaRoleArn
-      MemorySize: 128
-      Timeout: 30
-      Code:
-        S3Bucket: !Ref S3BucketName
-        S3Key: !Ref S3Key
+
+      Environment:
+        Variables:
+          ENDPOINT_NAME: !Ref EndpointName
+
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - sagemaker:InvokeEndpoint
+              Resource: "*"
+
+      Events:
+        RagEndpoint:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref PredictHttpApi
+            Path: /api/predict
+            Method: POST
+
+Outputs:
+  ApiUrl:
+    Value: !Sub "https://${PredictHttpApi}.execute-api.${AWS::Region}.amazonaws.com/api/predict"
