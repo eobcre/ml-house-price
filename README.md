@@ -25,21 +25,6 @@ It is used for regression problem and was used to train and evaluate the predict
   <sub>Architecture diagram created with Lucidchart</sub>
 </p>
 
-## 🛠️ Backend Architecture
-
-Backend is designed to separate development and production environments while sharing the same service logic.
-
-- `lambda/`
-  - Entry point for AWS Lambda. (`index.js`)
-  - Handles API Gateway requests.
-
-- `local/`
-  - Express.js server for local development. (`server.js`)
-  - Includes routes and controllers.
-
-- `services/`
-  - Contains shared logic used by both Lambda and local server.
-
 ## 🚀 Features
 
 - Real-time house price prediction based on user inputs.
@@ -59,15 +44,15 @@ Backend is designed to separate development and production environments while sh
 
 #### ▫️ Backend / AWS
 
-- AWS Lambda
-- Amazon API Gateway
 - Amazon SageMaker (Serverless Inference Endpoint)
 - Amazon SageMaker Studio
 - AWS SAM
+- AWS Lambda
+- Amazon API Gateway
 - Amazon CloudFront
 - Amazon S3
 
-> Note: AWS Lambda is managed via AWS SAM.
+> Note: AWS Lambda + Amazon API Gateway is managed via AWS SAM.
 
 #### ▫️ Machine Learning
 
@@ -94,16 +79,6 @@ The model shows moderate predictive performance:
 
 For reference, the average house price in the dataset is approximately $540,088.
 
-## 📈 API Configuration
-
-API dynamically switches API endpoints based on the environment.
-
-- In development:  
-  The app connects to a local Node.js server at `http://localhost:5173/api`.
-
-- In production:  
-  The app uses a base path `/api`, which is routed through CloudFront to API Gateway and Lambda.
-
 ## 📦 Installation
 
 Clone the repository and install dependencies.
@@ -114,19 +89,7 @@ cd ml-house-price
 npm install
 ```
 
-**Environment Variables**
-
-```
-VITE_API_URL=your_api_gateway_invoke_url
-```
-
-**Run Locally**
-
-```bash
-npm run dev
-```
-
-Note: This application requires a deployed AWS backend (API Gateway, Lambda and SageMaker).
+> Note: This application requires a deployed AWS backend (API Gateway, Lambda and SageMaker).
 
 ## 📚 References
 
