@@ -20,7 +20,7 @@ It is used for regression problem and was used to train and evaluate the predict
 ## 🏗 Architecture
 
 <p>
-  <img src="./docs/workflow_image.png" alt="Image" width="600" />
+  <img src="./docs/architecture.png" alt="Image" width="600" />
 <br />
   <sub>Architecture diagram created with Lucidchart</sub>
 </p>
