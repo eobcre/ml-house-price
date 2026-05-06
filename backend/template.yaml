@@ -5,6 +5,9 @@ Parameters:
   EndpointName:
     Type: String
     NoEcho: true
+  OriginSecret:
+    Type: String
+    NoEcho: true
 
 Globals:
   Function:
@@ -42,6 +45,7 @@ Resources:
       Environment:
         Variables:
           ENDPOINT_NAME: !Ref EndpointName
+          ORIGIN_SECRET: !Ref OriginSecret
 
       Policies:
         - Statement:
