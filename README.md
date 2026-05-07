@@ -51,8 +51,9 @@ It is used for regression problem and was used to train and evaluate the predict
 - Amazon API Gateway
 - Amazon CloudFront
 - Amazon S3
+- GitHub Actions
 
-> Note: AWS Lambda + Amazon API Gateway is managed via AWS SAM.
+> Note: AWS Lambda + Amazon API Gateway are managed and deployed via AWS SAM and GitHub Actions.
 
 #### ▫️ Machine Learning
 
