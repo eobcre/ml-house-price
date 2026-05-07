@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    
+    paths:
+      - "backend/src/**"
+      - "backend/template.yaml"
+      - ".github/workflows/**"
 
 permissions:
   id-token: write
