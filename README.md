@@ -46,11 +46,11 @@ It is used for regression problem and was used to train and evaluate the predict
 
 - Amazon SageMaker (Serverless Inference Endpoint)
 - Amazon SageMaker Studio
-- AWS SAM
 - AWS Lambda
 - Amazon API Gateway
 - Amazon CloudFront
 - Amazon S3
+- AWS SAM
 - GitHub Actions
 
 > Note: AWS Lambda + Amazon API Gateway are managed and deployed via AWS SAM and GitHub Actions.
