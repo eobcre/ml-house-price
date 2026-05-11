@@ -33,7 +33,7 @@ Resources:
       AllowOrigins:
         - "*"
 
-  RagFunction:
+  PredictFunction:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: sam-predict-api
@@ -55,7 +55,7 @@ Resources:
               Resource: "*"
 
       Events:
-        RagEndpoint:
+        PredictEndpoint:
           Type: HttpApi
           Properties:
             ApiId: !Ref PredictHttpApi
