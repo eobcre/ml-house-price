@@ -1,6 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 
+# template for: create and update lambda and api gateway resources
+
 Parameters:
   EndpointName:
     Type: String
@@ -15,6 +17,7 @@ Globals:
     Timeout: 30
     MemorySize: 128
 
+# api gateway
 Resources:
   PredictHttpApi:
     Type: AWS::Serverless::HttpApi
@@ -33,6 +36,7 @@ Resources:
       AllowOrigins:
         - "*"
 
+  # lambda
   PredictFunction:
     Type: AWS::Serverless::Function
     Properties:
