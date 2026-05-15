@@ -34,7 +34,7 @@ jobs:
       # test
       - name: Install backend dependencies
         working-directory: backend/src
-        run: npm install
+        run: npm ci
 
       - name: Run Lambda tests
         working-directory: backend/src
