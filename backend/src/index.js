@@ -15,6 +15,8 @@ export const handler = async (e) => {
     };
   }
 
+  console.log("e:", e);
+
   try {
     const body = e?.body ? JSON.parse(e.body) : {};
     const { bedrooms, bathrooms, sqft_living, yr_built, zipcode } = body;
